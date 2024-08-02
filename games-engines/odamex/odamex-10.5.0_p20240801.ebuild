@@ -4,14 +4,16 @@ EAPI=7
 
 WX_GTK_VER="3.0"
 inherit cmake desktop gnome2-utils readme.gentoo-r1 wxwidgets
+EGIT_REPO_URI="https://github.com/odamex/odamex"
+EGIT_COMMIT="2e3e8dd36e2a596fec0bf2049b4daaeaf8e4139e"
+inherit git-r3
 
 DESCRIPTION="Online multiplayer, free software engine for Doom and Doom II"
 HOMEPAGE="https://odamex.net/"
-SRC_URI="https://github.com/odamex/odamex/releases/download/10.5.0/odamex-src-10.5.0.tar.xz -> odamex-src-10.5.0.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="*"
+KEYWORDS="~"
 IUSE="+client hidpi master +odalaunch server upnp X"
 REQUIRED_USE="|| ( client master server )"
 
@@ -50,6 +52,13 @@ PATCHES=(
 	"${FILESDIR}"/"${PN}-10.3.0-unbundle-fltk.patch"
 )
 
+
+src_unpack() {
+	default
+	rm "${PN}-2e3e8dd36e2a596fec0bf2049b4daaeaf8e4139e" -r
+	mkdir "${PN}-${PV}" && cd "${PN}-${PV}"
+	git-r3_checkout
+}
 
 
 src_prepare() {

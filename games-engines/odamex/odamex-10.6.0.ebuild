@@ -13,11 +13,16 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="*"
 IUSE="+client hidpi master +odalaunch server upnp X"
-REQUIRED_USE="|| ( client master server )"
+REQUIRED_USE="
+	|| ( client master server )
+	odalaunch? ( X )
+"
 
 # protobuf is still bundled. Unfortunately an old version is required for C++98
 # compatibility. We could use C++11, but upstream is concerned about using a
 # completely different protobuf version on a multiplayer-focused engine.
+
+# Note that X 
 
 RDEPEND="
 	net-misc/curl
@@ -28,13 +33,14 @@ RDEPEND="
 		media-libs/sdl2-mixer[midi,timidity]
 		net-misc/curl
 		!hidpi? ( x11-libs/fltk:1 )
-		X? ( x11-libs/libX11 )
 	)
 	odalaunch? ( x11-libs/wxGTK:${WX_GTK_VER}[X] )
 	server? (
 		dev-libs/jsoncpp:=
 		upnp? ( net-libs/miniupnpc:= )
-	)"
+	)
+	X? ( x11-libs/libX11 )
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-util/cmake-3.13
@@ -45,7 +51,8 @@ DOC_CONTENTS="
 	Check: http://odamex.net/wiki/FAQ#What_data_files_are_required.3F
 "
 
-S="${WORKDIR}/${PN}-${PV}"
+
+S="${WORKDIR}/${PN}-src-${PV}"
 PATCHES=(
 	"${FILESDIR}"/"${PN}-10.3.0-unbundle-fltk.patch"
 )

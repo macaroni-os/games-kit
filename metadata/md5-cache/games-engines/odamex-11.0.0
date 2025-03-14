@@ -12,4 +12,4 @@ REQUIRED_USE=|| ( client master server ) odalaunch? ( X )
 SLOT=0
 SRC_URI=https://github.com/odamex/odamex/releases/download/11.0.0/odamex-src-11.0.0.tar.xz -> odamex-src-11.0.0.tar.xz
 _eclasses_=cmake	ac7cb516f6a288b6a82bc0649ce49878	desktop	b1d22ac8bdd4679ab79c71aca235009d	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	d0939f99dd528dd0c5ec25284877bf5c	gnome2-utils	532371cfcba45b2ab0d2950547c97d95	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	e7575bc4a90349d76e72777013b2bbc2	readme.gentoo-r1	22ae82e140bdd95d17a34fd5fd733190	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	wxwidgets	e1e6e1eb5b3d911b3abd712f611e2312	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=eee3d83f1d3577f9bcfb2d1e0cb04382
+_md5_=dd2455b7a0e07c03795d95ccbe53c86b
